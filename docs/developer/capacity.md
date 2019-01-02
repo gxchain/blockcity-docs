@@ -777,3 +777,151 @@ BlockCity.callShare({
 ```
 
 > <font size="2">小应用需要先引入Blockcity JS-SDK</font>
+
+## 获取用户公信链钱包账户名
+
+### 功能介绍
+
+为开发者提供授权获取用户公信链钱包账户名的能力。
+
+#### 1.1 功能流程
+
+引入JS-SDK，直接调用即可
+
+#### 1.2 准入条件
+
+无
+
+#### 1.3 版本支持
+
+Blockcity JS-SDK Version >= 1.2.0
+
+布洛克城沙箱 Version >= 2.0.0
+
+布洛克城 Version >= 2.0.0
+
+布洛克城国际版 Version >= 2.0.0
+
+### 接入指引
+
+#### 2.1 开发准备
+
+#### CDN引入
+
+通过 [unpkg.com/blockcity-js-sdk](https://unpkg.com/blockcity-js-sdk/) 可以看到 Blockcity JS-SDK 最新版本的资源，也可以切换版本选择需要的资源，在页面上引入 js 文件即可开始使用：
+
+``` javascript
+<script src="//unpkg.com/blockcity-js-sdk/dist/blockcity-js-sdk.min.js"></script>
+```
+
+#### NPM安装
+
+推荐使用 npm 来安装，享受生态圈和工具带来的便利，更好地和 webpack 配合使用。
+
+``` bash
+npm install blockcity-js-sdk -save
+```
+
+npm使用
+
+``` javascript
+import BlockCity from 'blockcity-js-sdk';
+```
+
+#### 2.2 功能接入
+
+为开发者提供授权获取用户公信链钱包账户名的能力，参数必填不能为空。
+
+``` javascript
+BlockCity.callAuth({
+    authItem: 'account',
+    success: function (res) {
+        alert('成功回调' + res);
+    },
+    fail: function (res) {
+        alert('分享失败' + res);
+    },
+    cancel: function (res) {
+        alert('用户取消' + res);
+    }
+});
+```
+
+> <font size="2">小应用需要先引入Blockcity JS-SDK</font>
+
+## 调用执行公信链智能合约
+
+### 功能介绍
+
+为开发者提供调用执行公信链智能合约的能力。
+
+#### 1.1 功能流程
+
+引入JS-SDK，直接调用即可
+
+#### 1.2 准入条件
+
+无
+
+#### 1.3 版本支持
+
+Blockcity JS-SDK Version >= 1.2.0
+
+布洛克城沙箱 Version >= 2.0.0
+
+布洛克城 Version >= 2.0.0
+
+布洛克城国际版 Version >= 2.0.0
+
+### 接入指引
+
+#### 2.1 开发准备
+
+#### CDN引入
+
+通过 [unpkg.com/blockcity-js-sdk](https://unpkg.com/blockcity-js-sdk/) 可以看到 Blockcity JS-SDK 最新版本的资源，也可以切换版本选择需要的资源，在页面上引入 js 文件即可开始使用：
+
+``` javascript
+<script src="//unpkg.com/blockcity-js-sdk/dist/blockcity-js-sdk.min.js"></script>
+```
+
+#### NPM安装
+
+推荐使用 npm 来安装，享受生态圈和工具带来的便利，更好地和 webpack 配合使用。
+
+``` bash
+npm install blockcity-js-sdk -save
+```
+
+npm使用
+
+``` javascript
+import BlockCity from 'blockcity-js-sdk';
+```
+
+#### 2.2 功能接入
+
+为开发者提供调用执行公信链智能合约的能力，参数必填不能为空。
+
+``` javascript
+BlockCity.callContract({
+    contractName: 'bank',   // 智能合约账户名
+    amount: {               // 发送资产对象 (Optional)
+        asset_id: '1.3.1',  // 资产链上ID
+        amount: 10000       // 资金金额（需保留精度，如发送1GXC,则传入10000）
+    },
+    methodName: 'deposit',  // 智能合约函数名
+    methodParams: {},       // 智能合约函数传参
+    success: function (res) {
+        alert('成功回调' + res);
+    },
+    fail: function (res) {
+        alert('分享失败' + res);
+    },
+    cancel: function (res) {
+        alert('用户取消' + res);
+    }
+});
+```
+
+> <font size="2">小应用需要先引入Blockcity JS-SDK</font>
