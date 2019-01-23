@@ -925,3 +925,73 @@ BlockCity.callContract({
 ```
 
 > <font size="2">小应用需要先引入Blockcity JS-SDK</font>
+
+
+
+## 是否支持指定接口
+
+### 功能介绍
+
+判断当前客户端版本是否支持指定接口
+
+#### 1.1 功能流程
+
+引入JS-SDK，直接调用即可
+
+#### 1.2 准入条件
+
+无
+
+#### 1.3 版本支持
+
+Blockcity JS-SDK Version >= 1.3.2
+
+
+
+### 接入指引
+
+#### 2.1 开发准备
+
+#### CDN引入
+
+通过 [unpkg.com/blockcity-js-sdk](https://unpkg.com/blockcity-js-sdk/) 可以看到 Blockcity JS-SDK 最新版本的资源，也可以切换版本选择需要的资源，在页面上引入 js 文件即可开始使用：
+
+```javascript
+<script src="//unpkg.com/blockcity-js-sdk/dist/blockcity-js-sdk.min.js"></script>
+```
+
+#### NPM安装
+
+推荐使用 npm 来安装，享受生态圈和工具带来的便利，更好地和 webpack 配合使用。
+
+```bash
+npm install blockcity-js-sdk -save
+```
+
+npm使用
+
+```javascript
+import BlockCity from 'blockcity-js-sdk';
+```
+
+#### 2.2 功能接入
+
+为开发者提供授权获取用户公信链钱包账户名的能力，参数必填不能为空。
+
+```javascript
+BlockCity.checkJsApi({
+    jsApiList: [
+        'shareConfig',
+        'choosePay',
+        'rotate'
+    ],
+    success: function (res) {
+        console.log(res.shareConfig)
+    },
+    fail: function (err) {
+        console.error(err)
+    }
+})
+```
+
+> <font size="2">小应用需要先引入Blockcity JS-SDK</font>
