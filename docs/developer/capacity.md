@@ -975,8 +975,7 @@ import BlockCity from 'blockcity-js-sdk';
 ```
 
 #### 2.2 功能接入
-
-为开发者提供授权获取用户公信链钱包账户名的能力，参数必填不能为空。
+如果支持的话，在success的返回结构，可以通过`res[apiName]`取到是否支持的情况，返回`true`或者`false`。
 
 ```javascript
 BlockCity.checkJsApi({
