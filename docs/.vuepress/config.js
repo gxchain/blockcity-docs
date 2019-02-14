@@ -7,11 +7,11 @@ module.exports = {
             title: '小应用',
             description: '小应用是布洛克城为开发者提供的开放能力，帮助开发者可以快速开发并上线属于自己的应用，为布洛克城的海量区块链用户提供服务。'
         },
-        '/en/': {
-            lang: 'en-US',
-            title: 'The Small Application',
-            description: 'The Small Application is based on the BlockCity DAPP, helping developers to quickly develop and launch their own applications, serving the massive blockchain users of BlockCity.'
-        }
+        // '/en/': {
+        //     lang: 'en-US',
+        //     title: 'The Small Application',
+        //     description: 'The Small Application is based on the BlockCity DAPP, helping developers to quickly develop and launch their own applications, serving the massive blockchain users of BlockCity.'
+        // }
     },
     themeConfig: {
         repo: 'https://github.com/gxchain/blockcity-docs',
