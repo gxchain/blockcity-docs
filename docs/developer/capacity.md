@@ -903,23 +903,53 @@ import BlockCity from 'blockcity-js-sdk';
 
 为开发者提供调用执行公信链智能合约的能力，参数必填不能为空。
 
+智能合约开发文档请移步：[https://docs.gxchain.org/zh/contract/](https://docs.gxchain.org/zh/contract/)
+
+><font size="2">提示: <br></font>
+><font size="2">资产对象amount，其中amount表示资产数量，在链上使用大数存储，举例来说，GXC资产精度为5，1 GXC实际需要表示为1 * 100000 = 100000， 即amount为100000。<br></font>
+><font size="2">发送资产对象asset_id表示资产id(比如GXC的资产id为1.3.1)。<br></font>
+><font size="2">methodParams中的资产对象asset_id表示资产的instance id(比如资产id为1.3.1， 则其instance id最后的1)。</font>
+
 ``` javascript
+// Demo: bank合约 - 存款
 BlockCity.callContract({
-    contractName: 'bank',   // 智能合约账户名
-    amount: {               // 发送资产对象 (Optional)
-        asset_id: '1.3.1',  // 资产链上ID
-        amount: 10000       // 资金金额（需保留精度，如发送1GXC,则传入10000）
+    contractName: 'bank',       // 智能合约账户名
+    amount: {                   // 发送资产对象 (Optional，需发送资产，则传入资产对象)
+        asset_id: '1.3.1',      // 资产ID
+        amount: 100000          // 资产数量（需保留精度，如发送1GXC,则传入100000）
     },
-    methodName: 'deposit',  // 智能合约函数名
-    methodParams: {},       // 智能合约函数传参
-    success: function (res) {
-        alert('成功回调' + res);
+    methodName: 'deposit',      // 智能合约函数名
+    methodParams: {},           // 智能合约函数传参
+    success: function (result) {
+        alert('成功：' + result);
     },
-    fail: function (res) {
-        alert('分享失败' + res);
+    fail: function (result) {
+        alert('失败：' + result);
     },
-    cancel: function (res) {
-        alert('用户取消' + res);
+    cancel: function (result) {
+        alert('取消：' + result);
+    }
+});
+// Demo: bank合约 - 提现
+BlockCity.callContract({
+    contractName: 'bank',       // 智能合约账户名
+    amount: 0,                  // 发送资产对象 (Optional，无需发送资产，则传入0)
+    methodName: 'withdraw',     // 智能合约函数名
+    methodParams: {             // 智能合约函数传参
+        to_account: 'nathan',
+        amount: {
+            asset_id: 1,
+            amount: 100000
+        }
+    },
+    success: function (result) {
+        alert('成功：' + result);
+    },
+    fail: function (result) {
+        alert('失败：' + result);
+    },
+    cancel: function (result) {
+        alert('取消：' + result);
     }
 });
 ```

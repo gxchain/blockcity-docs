@@ -21,6 +21,6 @@
   "author": "xLogic",
   "devDependencies": {
     "gh-pages": "^1.2.0",
-    "vuepress": "^0.14.1"
+    "vuepress": "^0.14.8"
   }
 }
